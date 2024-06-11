@@ -12,6 +12,7 @@
 		8B35EFFC2C18E13E00B5A286 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B35EFFB2C18E13E00B5A286 /* Assets.xcassets */; };
 		8B35EFFF2C18E13E00B5A286 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B35EFFE2C18E13E00B5A286 /* Preview Assets.xcassets */; };
 		8B35F0092C18E88300B5A286 /* PokedexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B35F0082C18E88300B5A286 /* PokedexView.swift */; };
+		8B35F0102C18F9AE00B5A286 /* PokemonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B35F00F2C18F9AE00B5A286 /* PokemonService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		8B35EFFE2C18E13E00B5A286 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8B35F0052C18E25900B5A286 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8B35F0082C18E88300B5A286 /* PokedexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexView.swift; sourceTree = "<group>"; };
+		8B35F00F2C18F9AE00B5A286 /* PokemonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		8B35EFF62C18E13D00B5A286 /* Pokedex */ = {
 			isa = PBXGroup;
 			children = (
+				8B35F00D2C18F98300B5A286 /* Web */,
 				8B35F0062C18E7D200B5A286 /* Views */,
 				8B35EFF72C18E13D00B5A286 /* Pokedex.swift */,
 				8B35EFFB2C18E13E00B5A286 /* Assets.xcassets */,
@@ -78,6 +81,14 @@
 				8B35F0082C18E88300B5A286 /* PokedexView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8B35F00D2C18F98300B5A286 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				8B35F00F2C18F9AE00B5A286 /* PokemonService.swift */,
+			);
+			path = Web;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B35F0092C18E88300B5A286 /* PokedexView.swift in Sources */,
+				8B35F0102C18F9AE00B5A286 /* PokemonService.swift in Sources */,
 				8B35EFFA2C18E13D00B5A286 /* MainView.swift in Sources */,
 				8B35EFF82C18E13D00B5A286 /* Pokedex.swift in Sources */,
 			);
