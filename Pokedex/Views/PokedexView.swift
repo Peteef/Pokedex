@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+func formatTypes(_ types: [PokemonType]) -> String {
+    return types.map(\.type.name)
+        .joined(separator: ", ")
+}
+
 struct PokedexView: View {
     @State var searchPhrase: String = ""
     @State var selectedPokemon: Pokemon?
@@ -19,6 +24,7 @@ struct PokedexView: View {
                 VStack {
                     Text("#\(selectedPokemon.id) \(selectedPokemon.name.capitalized)")
                         .font(Font.system(size: 32))
+                    Text("Types: \(formatTypes(selectedPokemon.types))")
                     Spacer()
                     VStack {
                         HStack {
