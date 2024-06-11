@@ -13,29 +13,30 @@ struct PokedexView: View {
     
     var body: some View {
         VStack {
-            TextField("Type a pokemon name or number", text: $searchPhrase)
-                .onSubmit { callPokemonService(pokemonQuery: searchPhrase) { selectedPokemon = $0 } }
+            PokemonSearch(phrase: $searchPhrase, selectedPokemon: $selectedPokemon)
             Spacer()
             if let selectedPokemon = selectedPokemon {
-                Text("#\(selectedPokemon.id) \(selectedPokemon.name.capitalized)")
-                Spacer()
                 VStack {
-                    HStack {
-                        AsyncImage(url: URL(string: selectedPokemon.sprites.frontDefault ))
-                            .frame(width: 128, height: 128)
-                        AsyncImage(url: URL(string: selectedPokemon.sprites.backDefault ))
-                            .frame(width: 128, height: 128)
+                    Text("#\(selectedPokemon.id) \(selectedPokemon.name.capitalized)")
+                        .font(Font.system(size: 32))
+                    Spacer()
+                    VStack {
+                        HStack {
+                            AsyncImage(url: URL(string: selectedPokemon.sprites.frontDefault ))
+                                .frame(width: 128, height: 128)
+                            AsyncImage(url: URL(string: selectedPokemon.sprites.backDefault ))
+                                .frame(width: 128, height: 128)
+                        }
+                        HStack {
+                            AsyncImage(url: URL(string: selectedPokemon.sprites.frontShiny ))
+                                .frame(width: 128, height: 128)
+                            AsyncImage(url: URL(string: selectedPokemon.sprites.backShiny ))
+                                .frame(width: 128, height: 128)
+                            
+                        }
                     }
-                    HStack {
-                        AsyncImage(url: URL(string: selectedPokemon.sprites.frontShiny ))
-                            .frame(width: 128, height: 128)
-                        AsyncImage(url: URL(string: selectedPokemon.sprites.backShiny ))
-                            .frame(width: 128, height: 128)
-                        
-                    }
-                }
+                }.padding([.top, .bottom], 40)
             }
-            Spacer()
         }.padding()
     }
 }
