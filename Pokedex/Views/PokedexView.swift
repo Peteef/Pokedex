@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-func formatTypes(_ types: [PokemonType]) -> String {
-    return types.map(\.type.name)
-        .joined(separator: ", ")
+func logoOfType(_ typeName: String) -> ImageResource {
+    return pokemonTypes[typeName.lowercased()]!.icon
 }
 
 struct PokedexView: View {
@@ -24,7 +23,14 @@ struct PokedexView: View {
                 VStack {
                     Text("#\(selectedPokemon.id) \(selectedPokemon.name.capitalized)")
                         .font(Font.system(size: 32))
-                    Text("Types: \(formatTypes(selectedPokemon.types))")
+                    HStack {
+                        Text("Types:")
+                        ForEach(selectedPokemon.types, id: \.type.name) {
+                            Image(logoOfType($0.type.name))
+                                .resizable()
+                                .frame(width: 32, height: 32)
+                        }
+                    }
                     Spacer()
                     VStack {
                         HStack {
