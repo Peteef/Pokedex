@@ -22,7 +22,10 @@ struct PokemonSearch: View {
                     .frame(height: 48)
             )
             .padding([.top, .bottom], 20)
-            .onSubmit { callPokemonService(pokemonQuery: phrase) { selectedPokemon = $0 } }
+            .onSubmit { callPokemonService(pokemonQuery: phrase) { 
+                selectedPokemon = $0
+                phrase = ""
+            } }
     }
 }
 

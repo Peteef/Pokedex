@@ -19,13 +19,12 @@ struct PokedexView: View {
         VStack {
             PokemonSearch(phrase: $searchPhrase, selectedPokemon: $selectedPokemon)
             Spacer()
-            if let selectedPokemon = selectedPokemon {
+            if let pokemon = selectedPokemon {
                 VStack {
-                    Text("#\(selectedPokemon.id) \(selectedPokemon.name.capitalized)")
-                        .font(Font.system(size: 32))
+                    TitleWithBrowse(pokemon: pokemon, selectedPokemon: $selectedPokemon)
                     HStack {
                         Text("Types:")
-                        ForEach(selectedPokemon.types, id: \.type.name) {
+                        ForEach(pokemon.types, id: \.type.name) {
                             Image(logoOfType($0.type.name))
                                 .resizable()
                                 .frame(width: 32, height: 32)
@@ -34,15 +33,15 @@ struct PokedexView: View {
                     Spacer()
                     VStack {
                         HStack {
-                            AsyncImage(url: URL(string: selectedPokemon.sprites.frontDefault ))
+                            AsyncImage(url: URL(string: pokemon.sprites.frontDefault ))
                                 .frame(width: 128, height: 128)
-                            AsyncImage(url: URL(string: selectedPokemon.sprites.backDefault ))
+                            AsyncImage(url: URL(string: pokemon.sprites.backDefault ))
                                 .frame(width: 128, height: 128)
                         }
                         HStack {
-                            AsyncImage(url: URL(string: selectedPokemon.sprites.frontShiny ))
+                            AsyncImage(url: URL(string: pokemon.sprites.frontShiny ))
                                 .frame(width: 128, height: 128)
-                            AsyncImage(url: URL(string: selectedPokemon.sprites.backShiny ))
+                            AsyncImage(url: URL(string: pokemon.sprites.backShiny ))
                                 .frame(width: 128, height: 128)
                             
                         }
