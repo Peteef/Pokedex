@@ -17,11 +17,11 @@ struct PokedexView: View {
     
     var body: some View {
         VStack {
-            PokemonSearch(phrase: $searchPhrase, selectedPokemon: $selectedPokemon)
+            PokemonSearchView(phrase: $searchPhrase, selectedPokemon: $selectedPokemon)
             Spacer()
             if let pokemon = selectedPokemon {
                 VStack {
-                    TitleWithBrowse(pokemon: pokemon, selectedPokemon: $selectedPokemon)
+                    TitleWithBrowseView(pokemon: pokemon, selectedPokemon: $selectedPokemon)
                     HStack {
                         Text("Types:")
                         ForEach(pokemon.types, id: \.type.name) {
@@ -31,21 +31,7 @@ struct PokedexView: View {
                         }
                     }
                     Spacer()
-                    VStack {
-                        HStack {
-                            AsyncImage(url: URL(string: pokemon.sprites.frontDefault ))
-                                .frame(width: 128, height: 128)
-                            AsyncImage(url: URL(string: pokemon.sprites.backDefault ))
-                                .frame(width: 128, height: 128)
-                        }
-                        HStack {
-                            AsyncImage(url: URL(string: pokemon.sprites.frontShiny ))
-                                .frame(width: 128, height: 128)
-                            AsyncImage(url: URL(string: pokemon.sprites.backShiny ))
-                                .frame(width: 128, height: 128)
-                            
-                        }
-                    }
+                    SpritesView(pokemon: pokemon)
                 }.padding([.top, .bottom], 40)
             }
         }.padding()

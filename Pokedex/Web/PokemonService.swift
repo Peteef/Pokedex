@@ -50,7 +50,11 @@ func callPokemonService(pokemonQuery: String, onSuccess: @escaping (Pokemon) -> 
         return
     }
     
-    URLSession.shared.dataTask(with: buildUrl(with: formattedQuery), completionHandler: { (data, response, error) in
+    callPokemonApi(query: formattedQuery, onSuccess: onSuccess)
+}
+
+private func callPokemonApi(query: String, onSuccess: @escaping (Pokemon) -> Void) {
+    URLSession.shared.dataTask(with: buildUrl(with: query), completionHandler: { (data, response, error) in
         if let error = error {
             print("Error accessing pokeapi.co: \(error)")
             return
@@ -73,4 +77,3 @@ private func addToCache(_ pokemon: Pokemon) {
 private func buildUrl(with query: String) -> URL {
     return URL(string: "\(baseUrl)/\(query)")!
 }
-

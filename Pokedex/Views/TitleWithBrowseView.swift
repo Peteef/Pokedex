@@ -1,5 +1,5 @@
 //
-//  TitleWithBrowse.swift
+//  TitleWithBrowseView.swift
 //  Pokedex
 //
 //  Created by Kamil Turek on 13/06/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TitleWithBrowse: View {
+struct TitleWithBrowseView: View {
     let pokemon: Pokemon
     @Binding var selectedPokemon: Pokemon?
     
@@ -36,5 +36,5 @@ struct TitleWithBrowse: View {
 }
 
 #Preview {
-    return TitleWithBrowse(pokemon: pikachu, selectedPokemon: .constant(pikachu))
+    return TitleWithBrowseView(pokemon: pikachu, selectedPokemon: .constant(pikachu))
 }

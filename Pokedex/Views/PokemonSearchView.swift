@@ -1,5 +1,5 @@
 //
-//  PokemonSearch.swift
+//  PokemonSearchView.swift
 //  Pokedex
 //
 //  Created by Kamil Turek on 12/06/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PokemonSearch: View {
+struct PokemonSearchView: View {
     @Binding var phrase: String
     @Binding var selectedPokemon: Pokemon?
     
@@ -30,5 +30,5 @@ struct PokemonSearch: View {
 }
 
 #Preview {
-    PokemonSearch(phrase: .constant(""), selectedPokemon: .constant(nil))
+    PokemonSearchView(phrase: .constant(""), selectedPokemon: .constant(nil))
 }
