@@ -39,13 +39,13 @@ func callPokemonService(pokemonQuery: String, onSuccess: @escaping (Pokemon) -> 
     let formattedQuery = pokemonQuery.lowercased()
     
     if let fromCache = cacheByName[formattedQuery] {
-        print("From cache by name")
+        print("From cache by name \(formattedQuery)")
         onSuccess(fromCache)
         return
     }
     
     if let id = Int(formattedQuery), let fromCache = cacheById[id] {
-        print("From cache by id")
+        print("From cache by id \(id)")
         onSuccess(fromCache)
         return
     }

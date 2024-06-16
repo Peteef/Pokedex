@@ -1,5 +1,5 @@
 //
-//  Utils.swift
+//  Common.swift
 //  Pokedex
 //
 //  Created by Kamil Turek on 13/06/2024.

@@ -17,6 +17,9 @@ struct TitleWithBrowse: View {
                 callPokemonService(pokemonQuery: String(pokemon.id - 1)) { selectedPokemon = $0 }
             } label: {
                 Image(systemName: "arrow.backward.square")
+                    .resizable()
+                    .frame(width: 24, height: 24)
+                    .tint(.black)
             }.disabled(pokemon.id < 2)
             Text("#\(pokemon.id) \(pokemon.name.capitalized)")
                 .font(Font.system(size: 32))
@@ -24,12 +27,14 @@ struct TitleWithBrowse: View {
                 callPokemonService(pokemonQuery: String(pokemon.id + 1)) { selectedPokemon = $0 }
             } label: {
                 Image(systemName: "arrow.forward.square")
+                    .resizable()
+                    .frame(width: 24, height: 24)
+                    .tint(.black)
             }.disabled(pokemon.id > 898) // TODO: Make sure this is the cap or maybe some of the resources are not present and crash
         }
     }
 }
 
-// TODO: Prepare mocks
-//#Preview {
-//    TitleWithBrowse()
-//}
+#Preview {
+    return TitleWithBrowse(pokemon: pikachu, selectedPokemon: .constant(pikachu))
+}
