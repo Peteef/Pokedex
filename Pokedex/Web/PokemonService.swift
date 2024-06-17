@@ -26,6 +26,17 @@ struct PokemonType: Decodable {
 struct Pokemon: Decodable {
     let id: Int
     let name: String
+    
+    let height: Int
+    var heightInCentimeters: Int {
+        height * 10
+    }
+    
+    let weight: Int
+    var weightInGrams: Int {
+        weight * 100
+    }
+    
     let sprites: Sprites
     let types: [PokemonType]
 }

@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-func logoOfType(_ typeName: String) -> ImageResource {
-    return pokemonTypes[typeName.lowercased()]!.icon
-}
-
 struct PokedexView: View {
     @State var searchPhrase: String = ""
     @State var selectedPokemon: Pokemon?
@@ -22,14 +18,7 @@ struct PokedexView: View {
             if let pokemon = selectedPokemon {
                 VStack {
                     TitleWithBrowseView(pokemon: pokemon, selectedPokemon: $selectedPokemon)
-                    HStack {
-                        Text("Types:")
-                        ForEach(pokemon.types, id: \.type.name) {
-                            Image(logoOfType($0.type.name))
-                                .resizable()
-                                .frame(width: 32, height: 32)
-                        }
-                    }
+                    PokemonDataView(pokemon: pokemon)
                     Spacer()
                     SpritesView(pokemon: pokemon)
                 }.padding([.top, .bottom], 40)

@@ -33,3 +33,9 @@ let pokemonTypes = [
     "steel": ExtendedPokemonType(id: "steel", icon: .steelTypeIcon),
     "water": ExtendedPokemonType(id: "water", icon: .waterTypeIcon)
 ]
+
+extension Int {
+    var doubleValue: Double {
+        Double(self)
+    }
+}

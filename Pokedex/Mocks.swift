@@ -10,6 +10,8 @@ import Foundation
 let pikachu = Pokemon(
     id: 25,
     name: "Pikachu",
+    height: 4,
+    weight: 60,
     sprites: Sprites(
         frontDefault: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
         backDefault: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png",
