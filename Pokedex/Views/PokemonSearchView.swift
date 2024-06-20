@@ -22,8 +22,8 @@ struct PokemonSearchView: View {
                     .frame(height: 48)
             )
             .padding([.top, .bottom], 20)
-            .onSubmit { callPokemonService(pokemonQuery: phrase) { 
-                selectedPokemon = mapToPokemon(of: $0)
+            .onSubmit { getPokemon(pokemonQuery: phrase) {
+                selectedPokemon = $0
                 phrase = ""
             } }
     }
