@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-func logoOfType(_ typeName: String) -> ImageResource {
-    return pokemonTypes[typeName.lowercased()]!.icon
+func logoOfType(_ typeName: PokemonType) -> ImageResource {
+    return pokemonTypes[typeName]!.icon
 }
 
 func formatHeight(centimeters: Int) -> String {
@@ -25,14 +25,14 @@ struct PokemonDataView: View {
     var body: some View {
         HStack {
             Text("Types:")
-            ForEach(pokemon.types, id: \.type.name) {
-                Image(logoOfType($0.type.name))
+            ForEach(pokemon.types, id: \.rawValue) {
+                Image(logoOfType($0))
                     .resizable()
                     .frame(width: 32, height: 32)
             }
         }
-        Text("Height: \(formatHeight(centimeters: pokemon.heightInCentimeters))")
-        Text("Weight: \(formatWeight(grams: pokemon.weightInGrams))")
+        Text("Height: \(formatHeight(centimeters: pokemon.height))")
+        Text("Weight: \(formatWeight(grams: pokemon.weight))")
     }
 }
 

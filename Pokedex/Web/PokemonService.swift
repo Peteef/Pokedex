@@ -7,23 +7,16 @@
 
 import Foundation
 
-struct Sprites: Decodable {
-    let frontDefault: String
-    let backDefault: String
-    let frontShiny: String
-    let backShiny: String
-}
-
 struct PokemonTypeResource: Decodable {
     let name: String
     let url: String
 }
 
-struct PokemonType: Decodable {
+struct PokemonTypeResponse: Decodable {
     let type: PokemonTypeResource
 }
 
-struct Pokemon: Decodable {
+struct PokemonResponse: Decodable {
     let id: Int
     let name: String
     
@@ -38,25 +31,25 @@ struct Pokemon: Decodable {
     }
     
     let sprites: Sprites
-    let types: [PokemonType]
+    let types: [PokemonTypeResponse]
 }
 
 private let baseUrl = "https://pokeapi.co/api/v2/pokemon"
 
-private var cacheById: [Int: Pokemon] = [:]
-private var cacheByName: [String: Pokemon] = [:]
+private var cacheById: [Int: PokemonResponse] = [:]
+private var cacheByName: [String: PokemonResponse] = [:]
 
-func callPokemonService(pokemonQuery: String, onSuccess: @escaping (Pokemon) -> Void) {
+func callPokemonService(pokemonQuery: String, onSuccess: @escaping (PokemonResponse) -> Void) {
     let formattedQuery = pokemonQuery.lowercased()
     
     if let fromCache = cacheByName[formattedQuery] {
-        print("From cache by name \(formattedQuery)")
+        print("[Pokemon] From cache by name \(formattedQuery)")
         onSuccess(fromCache)
         return
     }
     
     if let id = Int(formattedQuery), let fromCache = cacheById[id] {
-        print("From cache by id \(id)")
+        print("[Pokemon] From cache by id \(id)")
         onSuccess(fromCache)
         return
     }
@@ -64,23 +57,23 @@ func callPokemonService(pokemonQuery: String, onSuccess: @escaping (Pokemon) -> 
     callPokemonApi(query: formattedQuery, onSuccess: onSuccess)
 }
 
-private func callPokemonApi(query: String, onSuccess: @escaping (Pokemon) -> Void) {
+private func callPokemonApi(query: String, onSuccess: @escaping (PokemonResponse) -> Void) {
     URLSession.shared.dataTask(with: buildUrl(with: query), completionHandler: { (data, response, error) in
         if let error = error {
-            print("Error accessing pokeapi.co: \(error)")
+            print("[Pokemon] Error accessing pokeapi.co: \(error)")
             return
         }
         
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-        if let data = data, let decoded = try? decoder.decode(Pokemon.self, from: data) {
+        if let data = data, let decoded = try? decoder.decode(PokemonResponse.self, from: data) {
             addToCache(decoded)
             onSuccess(decoded)
         }
     }).resume()
 }
 
-private func addToCache(_ pokemon: Pokemon) {
+private func addToCache(_ pokemon: PokemonResponse) {
     cacheById[pokemon.id] = pokemon
     cacheByName[pokemon.name] = pokemon
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-let pikachu = Pokemon(
+let pikachuResponse = PokemonResponse(
     id: 25,
     name: "Pikachu",
     height: 4,
@@ -19,6 +19,8 @@ let pikachu = Pokemon(
         backShiny: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/25.png"
     ),
     types: [
-        PokemonType(type: PokemonTypeResource(name: "electric", url: "https://pokeapi.co/api/v2/type/13/"))
+        PokemonTypeResponse(type: PokemonTypeResource(name: "electric", url: "https://pokeapi.co/api/v2/type/13/"))
     ]
 )
+
+let pikachu = mapToPokemon(of: pikachuResponse)

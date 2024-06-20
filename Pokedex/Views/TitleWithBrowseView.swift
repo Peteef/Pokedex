@@ -14,7 +14,7 @@ struct TitleWithBrowseView: View {
     var body: some View {
         HStack {
             Button {
-                callPokemonService(pokemonQuery: String(pokemon.id - 1)) { selectedPokemon = $0 }
+                callPokemonService(pokemonQuery: String(pokemon.id - 1)) { selectedPokemon = mapToPokemon(of: $0) }
             } label: {
                 Image(systemName: "arrow.backward.square")
                     .resizable()
@@ -24,7 +24,7 @@ struct TitleWithBrowseView: View {
             Text("#\(pokemon.id) \(pokemon.name.capitalized)")
                 .font(Font.system(size: 32))
             Button {
-                callPokemonService(pokemonQuery: String(pokemon.id + 1)) { selectedPokemon = $0 }
+                callPokemonService(pokemonQuery: String(pokemon.id + 1)) { selectedPokemon = mapToPokemon(of: $0) }
             } label: {
                 Image(systemName: "arrow.forward.square")
                     .resizable()
