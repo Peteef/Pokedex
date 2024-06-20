@@ -10,6 +10,9 @@ import Foundation
 struct PokemonSpeciesResponse: Decodable {
     let id: Int
     let name: String
+    let isBaby: Bool
+    let isLegendary: Bool
+    let isMythical: Bool
 }
 
 private let baseUrl = "https://pokeapi.co/api/v2/pokemon-species"

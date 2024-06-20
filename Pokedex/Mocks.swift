@@ -23,4 +23,12 @@ let pikachuResponse = PokemonResponse(
     ]
 )
 
-let pikachu = mapToPokemon(of: pikachuResponse)
+let pikachuSpeciesResponse = PokemonSpeciesResponse(
+    id: 25,
+    name: "Pikachu",
+    isBaby: true,
+    isLegendary: false,
+    isMythical: false
+)
+
+let pikachu = mapToPokemon(of: pikachuResponse, species: pikachuSpeciesResponse)

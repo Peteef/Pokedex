@@ -14,6 +14,9 @@ struct Pokemon {
     let weight: Int
     let sprites: Sprites
     let types: [PokemonType]
+    let isBaby: Bool
+    let isLegendary: Bool
+    let isMythical: Bool
 }
 
 enum PokemonType: String {
@@ -37,13 +40,16 @@ enum PokemonType: String {
     case water = "water"
 }
 
-func mapToPokemon(of response: PokemonResponse) -> Pokemon {
+func mapToPokemon(of response: PokemonResponse, species: PokemonSpeciesResponse) -> Pokemon {
     return Pokemon(
         id: response.id,
         name: response.name,
         height: response.heightInCentimeters,
         weight: response.weightInGrams,
         sprites: response.sprites,
-        types: response.types.map { PokemonType(rawValue: $0.type.name)! } // TODO: Think of better handling potential errors
+        types: response.types.map { PokemonType(rawValue: $0.type.name)! }, // TODO: Think of better handling potential errors
+        isBaby: species.isBaby,
+        isLegendary: species.isLegendary,
+        isMythical: species.isMythical
     )
 }

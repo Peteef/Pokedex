@@ -30,7 +30,7 @@ func getPokemon(pokemonQuery: String, onSuccess: @escaping (Pokemon) -> Void) {
     
     dispatchGroup.notify(queue: .main) {
         if let pokemonResponse = pokemonResponse, let pokemonSpeciesResponse = pokemonSpeciesResponse {
-            onSuccess(mapToPokemon(of: pokemonResponse))
+            onSuccess(mapToPokemon(of: pokemonResponse, species: pokemonSpeciesResponse))
         }
     }
 }
