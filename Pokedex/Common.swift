@@ -46,3 +46,7 @@ extension Int {
         Double(self)
     }
 }
+
+struct PokeApiResource: Decodable {
+    let url: String
+}

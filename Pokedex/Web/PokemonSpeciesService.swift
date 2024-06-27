@@ -13,6 +13,7 @@ struct PokemonSpeciesResponse: Decodable {
     let isBaby: Bool
     let isLegendary: Bool
     let isMythical: Bool
+    let evolutionChain: PokeApiResource
 }
 
 private let baseUrl = "https://pokeapi.co/api/v2/pokemon-species"

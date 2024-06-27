@@ -28,7 +28,10 @@ let pikachuSpeciesResponse = PokemonSpeciesResponse(
     name: "Pikachu",
     isBaby: true,
     isLegendary: false,
-    isMythical: false
+    isMythical: false,
+    evolutionChain: PokeApiResource(url: "https://pokeapi.co/api/v2/evolution-chain/10/")
 )
 
-let pikachu = mapToPokemon(of: pikachuResponse, species: pikachuSpeciesResponse)
+let evolutionChainResponse = EvolutionChainResponse(id: 10)
+
+let pikachu = mapToPokemon(of: pikachuResponse, species: pikachuSpeciesResponse, evolution: evolutionChainResponse)

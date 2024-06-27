@@ -22,6 +22,7 @@
 		8B35F01F2C1FB96200B5A286 /* PokemonSpeciesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B35F01E2C1FB96200B5A286 /* PokemonSpeciesService.swift */; };
 		8B35F0222C24D4B300B5A286 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B35F0212C24D4B300B5A286 /* Pokemon.swift */; };
 		8B35F0252C24DBDD00B5A286 /* GetPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B35F0242C24DBDD00B5A286 /* GetPokemon.swift */; };
+		8B35F0272C2DF2B000B5A286 /* EvolutionChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B35F0262C2DF2B000B5A286 /* EvolutionChainService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		8B35F01E2C1FB96200B5A286 /* PokemonSpeciesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonSpeciesService.swift; sourceTree = "<group>"; };
 		8B35F0212C24D4B300B5A286 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		8B35F0242C24DBDD00B5A286 /* GetPokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPokemon.swift; sourceTree = "<group>"; };
+		8B35F0262C2DF2B000B5A286 /* EvolutionChainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionChainService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			children = (
 				8B35F00F2C18F9AE00B5A286 /* PokemonService.swift */,
 				8B35F01E2C1FB96200B5A286 /* PokemonSpeciesService.swift */,
+				8B35F0262C2DF2B000B5A286 /* EvolutionChainService.swift */,
 			);
 			path = Web;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				8B35F0122C1904AC00B5A286 /* PokemonSearchView.swift in Sources */,
 				8B35F01F2C1FB96200B5A286 /* PokemonSpeciesService.swift in Sources */,
 				8B35F01D2C1FAE6D00B5A286 /* PokemonDataView.swift in Sources */,
+				8B35F0272C2DF2B000B5A286 /* EvolutionChainService.swift in Sources */,
 				8B35F0252C24DBDD00B5A286 /* GetPokemon.swift in Sources */,
 				8B35F0152C1A554500B5A286 /* Common.swift in Sources */,
 			);
